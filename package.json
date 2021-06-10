@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "aws-sdk": "^2.926.0",
     "sequelize": "^6.6.2"
   },
   "scripts": {
