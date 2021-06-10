@@ -43,17 +43,17 @@ console.log('Server running at http://127.0.0.1:' + port + '/');
 
 
 
-// Option 2: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('melob187_cmp', 'melob187_cmpu', '7B6h&c3mu', {
-    host: 'br882.hostgator.com.br',
-    port: 3306,
-    dialect: 'mysql',
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 5000
-      },
-  });
+// // Option 2: Passing parameters separately (other dialects)
+// const sequelize = new Sequelize('melob187_cmp', 'melob187_cmpu', '7B6h&c3mu', {
+//     host: 'br882.hostgator.com.br',
+//     port: 3306,
+//     dialect: 'mysql',
+//     pool: {
+//         max: 5,
+//         min: 0,
+//         idle: 5000
+//       },
+//   });
 
 // var Clientes = sequelize.define('clientes', {
 //     id: {
