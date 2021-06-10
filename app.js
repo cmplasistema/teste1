@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 AWS.config.update({
   region: "us-east-2",
   endpoint: "https://dynamodb.us-east-2.amazonaws.com",
-  accessKeyId: "AKIAUHCAVDONGAUSAM7U",
+  accessKeyId: "AKIAUHCAVDONGAUSAM7U",      // Usuário "teste1" 
   secretAccessKey: "13Fjt+O7c1BaFd7MEqLc56xJ3n/1bUG20sR4bIkb"
 });
 
@@ -54,47 +54,32 @@ console.log(c1);
 putClient(c1);
 getClientes();
 
-// save();
-
-// var dynamodb = new AWS.DynamoDB();
-
-
-// dynamodb.createTable(params, function(err, data) {
-//     if (err) {
-//         console.error("Unable to create table. Error JSON:", JSON.stringify(err, null, 2));
-//     } else {
-//         console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
-//     }
-// });
 
 
 
 
 
 
+var port = process.env.PORT || 3000,
+    http = require('http'),
+    fs = require('fs'),
+    html = fs.readFileSync('index.html');
 
+var log = function(entry) {
+    fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
+};
 
+var server = http.createServer(function (req, res) {
+    res.writeHead(200);
+    res.write(html);
+    res.end();
+});
 
-// var port = process.env.PORT || 3000,
-//     http = require('http'),
-//     fs = require('fs'),
-//     html = fs.readFileSync('index.html');
+// Listen on port 3000, IP defaults to 127.0.0.1
+server.listen(port);
 
-// var log = function(entry) {
-//     fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
-// };
-
-// var server = http.createServer(function (req, res) {
-//     res.writeHead(200);
-//     res.write(html);
-//     res.end();
-// });
-
-// // Listen on port 3000, IP defaults to 127.0.0.1
-// server.listen(port);
-
-// // Put a friendly message on the terminal
-// console.log('Server running at http://127.0.0.1:' + port + '/');
+// Put a friendly message on the terminal
+console.log('Server running at http://127.0.0.1:' + port + '/');
 
 
 
